@@ -30,40 +30,15 @@ function inc (speed: number, inc: number = 1) : number {
 console.log(`inc (5, 1) = ${inc(5, 1)}`)
 console.log(`inc (5) = ${inc(5)}`)
 */ 
-
-class Spacecraft {
-	constructor (public propulsor: string){}
-
-	junpIntoHyperspace() {
-		console.log(`Entering hyper with ${this.propulsor} `)
-	}
-}
+import {Spacecraft, Containership} from './base-ships'
+import {MilleniumFalcon} from './starfighters'
 
 let ship = new Spacecraft('hyperdrive')
 ship.junpIntoHyperspace()
 
-class MilleniumFalcon extends Spacecraft implements Containership {
-
-	cargoContainers: number
-
-	constructor(){
-		super('hyperdrive')
-		this.cargoContainers = 4
-	}
-
-	junpIntoHyperspace(){
-		if (Math.random() >= 0.5) {
-			super.junpIntoHyperspace()
-		}else{ console.log('Failed to jump into hyperspace') }
-	}
-}
-
 let falcon = new MilleniumFalcon()
 falcon.junpIntoHyperspace()
 
-interface Containership {
-	cargoContainers?: number
-}
 
 let goodForTheJob = ( ship: Containership ) => ship.cargoContainers > 2
 
