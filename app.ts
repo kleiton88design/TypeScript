@@ -33,6 +33,9 @@ console.log(`inc (5) = ${inc(5)}`)
 import {Spacecraft, Containership} from './base-ships'
 import {MilleniumFalcon} from './starfighters'
 
+import * as _ from 'lodash'
+console.log(_.pad("Typescript Examples", 40, "="))
+
 let ship = new Spacecraft('hyperdrive')
 ship.junpIntoHyperspace()
 
